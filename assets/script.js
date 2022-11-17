@@ -7,6 +7,7 @@ var correctEl = document.getElementById('correct');
 var scoreEl = document.getElementById('score')
 var viewHighscoreEl = document.getElementById('viewHighscore');
 var timerEl = document.getElementById('timer');
+var highscoreEl = document.getElementById('highscore')
 var timeleft;
 var questionIndex = 0;
 var score = 0
@@ -16,42 +17,42 @@ var questionArr = [
   {
     q: 'What does HTML stand for?',
     a: 'c) HyperText Markup Language',
-    choices: [{ choice1: 'a) Home Tool Markup Language' }, { choice2: 'b) Hyperlinks and Text Markup Language' }, { choice3: 'c) HyperText Markup Language' }, { choice4: 'd) I have no sweet clue' }]
+    choices: [{ choice: 'a) Home Tool Markup Language' }, { choice: 'b) Hyperlinks and Text Markup Language' }, { choice: 'c) HyperText Markup Language' }, { choice: 'd) I have no sweet clue' }]
   },
   {
     q: 'What does CSS stand for?',
     a: 'a) Cascading Style Sheet',
-    choices: [{ choice1: 'a) Cascading Style Sheet' }, { choice2: 'b) Colorful Style Sheet' }, { choice3: 'c) Creative Style Sheet' }, { choice4: 'd) Please for the love of god give me the answer' }]
+    choices: [{ choice: 'a) Cascading Style Sheet' }, { choice: 'b) Colorful Style Sheet' }, { choice: 'c) Creative Style Sheet' }, { choice: 'd) Please for the love of god give me the answer' }]
   },
   {
     q: 'Where is the most likely spot to find JavaScript inserted?',
     a: 'b) The <body> section',
-    choices: [{ choice1: 'a) The <head> section' }, { choice2: 'b) The <body> section' }, { choice3: 'c) Both' }, { choice4: 'd) Why must you make these quizzes so hard' }]
+    choices: [{ choice: 'a) The <head> section' }, { choice: 'b) The <body> section' }, { choice: 'c) Both' }, { choice: 'd) Why must you make these quizzes so hard' }]
   },
   {
     q: 'How do you make an alert box in JavaScript?',
     a: 'a) alert()',
-    choices: [{ choice1: 'a) alert()' }, { choice2: 'b) alrt()' }, { choice3: 'c) alertBox()' }, { choice4: 'd) Wow I am about to give up' }]
+    choices: [{ choice: 'a) alert()' }, { choice: 'b) alrt()' }, { choice: 'c) alertBox()' }, { choice: 'd) Wow I am about to give up' }]
   },
   {
     q: 'Which is a way to define a variable?',
     a: 'c) var',
-    choices: [{ choice1: 'a) constant' }, { choice2: 'b) variable' }, { choice3: 'c) var' }, { choice4: 'd) Got me again' }]
+    choices: [{ choice: 'a) constant' }, { choice: 'b) variable' }, { choice: 'c) var' }, { choice: 'd) Got me again' }]
   },
   {
     q: 'Does CSS suck?',
     a: 'b) Yes',
-    choices: [{ choice1: 'a) No' }, { choice2: 'b) Yes' }, { choice3: 'c) No' }, { choice4: 'd) You know the right answer' }]
+    choices: [{ choice: 'a) No' }, { choice: 'b) Yes' }, { choice: 'c) No' }, { choice: 'd) You know the right answer' }]
   },
   {
     q: 'Which HTML element is used to specify the footer of a document?',
     a: 'c) footer',
-    choices: [{ choice1: 'a) section' }, { choice2: 'b) bottom' }, { choice3: 'c) footer' }, { choice4: 'd) I give up' }]
+    choices: [{ choice: 'a) section' }, { choice: 'b) bottom' }, { choice: 'c) footer' }, { choice: 'd) I give up' }]
   },
   {
     q: 'Are you happy this is the last question?',
     a: 'a) Yes',
-    choices: [{ choice1: 'a) Yes' }, { choice2: 'b) No' }, { choice3: 'c) Maybe So' }, { choice4: 'd) Finally I know this one' }]
+    choices: [{ choice: 'a) Yes' }, { choice: 'b) No' }, { choice: 'c) Maybe So' }, { choice: 'd) Finally I know this one' }]
   },
 ];
 
@@ -96,25 +97,27 @@ var setQuestion = function() {
   displayQuestion(arrayShuffledQuestions[questionIndex])
 }
 
-//resete answer buttons
+//This is where we create the answer child
 var resetAnswers = function() {
   while (answerbuttonsEl.firstChild) {
       answerbuttonsEl.removeChild(answerbuttonsEl.firstChild)
   };
 };
 
-//displays the question
+//displays the question & choices
 var displayQuestion = function(index) {
   questionEl.innerText = index.q
   for (var i = 0; i < index.choices.length; i++) {
       var answerbutton = document.createElement('button')
+      answerbutton.setAttribute('style', 'background-color: #EEA47FFF; color: #00539CFF: font-size: large; font-weight: bolder; margin: 5px; padding: 15px 30px; outline: auto; border-radius:25%; cursor: pointer;')
       answerbutton.innerText = index.choices[i].choice
-      answerbutton.classList.add('bttn')
-      answerbutton.classList.add('answerbttn')
+      answerbutton.classList.add('btn')
+      answerbutton.classList.add('answerbtn')
       answerbutton.addEventListener("click", answerCheck)
       answerbuttonsEl.appendChild(answerbutton)
       }
   };
+
 
 //display correct! message on screen below answers
 var answerCorrect = function() {
@@ -162,10 +165,14 @@ var answerCheck = function(event) {
   //Display total score screen at end of game
   var showScore = function () {
     questionEl.classList.add("hide");
+    answerbuttonsEl.classList.add("hide");
     scoreEl.classList.remove("hide");
     scoreEl.classList.add("show");
+    wrongEl.classList.add("hide");
+    correctEl.classList.add("hide");
+    
   
     var scoreDisplay = document.createElement("p");
     scoreDisplay.innerText = ("Your final score is " + score + "!");
-    containerScoreEl.appendChild(scoreDisplay);
+    scoreEl.appendChild(scoreDisplay);
   } 

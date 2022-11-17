@@ -60,7 +60,6 @@ text-align: center;
 font-size: x-large;
 }
 
-
 #wrong{
 text-align: left;
 font-size: x-large;
@@ -73,10 +72,18 @@ margin-left: 20px;
     margin-left: 20px;
     }
 
-    .hide {
+.hide {
         display: none;
     }
 
-    #score {
+ #score {
+        text-align: center;
+    }
+
+    #initials {
+        text-align: center;
+    }
+
+    #highscore {
         text-align: center;
     }
