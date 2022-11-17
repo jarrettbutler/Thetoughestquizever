@@ -52,10 +52,12 @@ header h3 {
 
 #question {
     text-align: center;
+    font-size: x-large;
 }
 
 #answer-buttons {
 text-align: center;
+font-size: x-large;
 }
 
 
