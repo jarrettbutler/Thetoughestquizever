@@ -11,56 +11,34 @@
 
 <body>
     <header>
+        <!-- This is the header where you should be able to click on highscore and it will take you there and watch the timner countdown -->
         <h3 id="viewHighscore">Highscores</h3>
         <h3 class="timer">Time: <span id="timer"></span> </h3>
     </header>
 
-    <div id="start" class="start">
-        <div class="rules">
-            <h2>You will have 2 minutes to complete 8 questions</h2>
+    <!-- This is the start quiz screen -->
+    <main id="start" class="start">
+            <h2>My Awesome Quiz</h2>
             <ul>
+                <li>You will have 2 minutes to complete 8 questions</li>
                 <li>1 point will be awarded for a correct answer</li>
                 <li>10 seconds will be deducted for a wrong answer</li>
                 <li>At the end your score will be tallied and you can add it to the leader board</li>
             </ul>
-            <button class="startBtn" id="startBtn">Start Quiz</button>
-        </div>
-    </div>
+            <button id="startBtn">Start Quiz</button>
+    </main>
 
-    <div class="quiz"></div>
+    <!-- This is where the question would display from -->
+<div id="question" class="hide"></div>
 
-    <div id="quiz" class="hide">
-        <div id="questions"></div>
-    </div>
+<!-- This it where the answer would display from -->
+<div id="answer-buttons" class="button-grid"></div>
 
-    <div id="answer" class="answer"></div>
+<!-- This is where the correct/wrong display from -->
+<div id="wrong" class="hide">Wrong</div>
+<div id="correct" class="hide">Correct</div>
 
-    <div id="endGame" class="hide">
-        <div class="endGame">
-            <div id="score">
-                <h2>FINISHED ME!</h2>
-            </div>
-            <form id="initials-form" class="initials">
-                <p> Enter Initials:
-                    <input type="text" name="initials" id="initials" class="text-input" />
-                    <button class="btnstart" id="sumbit-score" type="submit">Submit</button>
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <div id="highscores" class="hide">
-        <div id="highscoreBoard">
-            <h2 id="highscore">Highscores!</h2>
-            <ol id="highscoreList" class="highscoreList"></ol>
-            <div>
-                <button id="restart">Restart Quiz</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="right" class="hide">That's right!</div>
-    <div id="wrong" class="hide">That's wrong!</div>
+<div id="score" class="hide">HIGHSCORE!</div>
 
     <script src="./assets/script.js"></script>
 </body>
