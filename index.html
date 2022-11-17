@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheToughestQuizEver</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <header>
+        <h3 id="viewHighscore">Highscores</h3>
+        <h3 class="timer">Time: <span id="timer"></span> </h3>
+    </header>
+
+    <div id="start" class="start">
+        <div class="rules">
+            <h2>You will have 2 minutes to complete 8 questions</h2>
+            <ul>
+                <li>1 point will be awarded for a correct answer</li>
+                <li>10 seconds will be deducted for a wrong answer</li>
+                <li>At the end your score will be tallied and you can add it to the leader board</li>
+            </ul>
+            <button class="startBtn" id="startBtn">Start Quiz</button>
+        </div>
+    </div>
+
+    <div class="quiz"></div>
+
+    <div id="quiz" class="hide">
+        <div id="questions"></div>
+    </div>
+
+    <div id="answer" class="answer"></div>
+
+    <div id="endGame" class="hide">
+        <div class="endGame">
+            <div id="score">
+                <h2>FINISHED ME!</h2>
+            </div>
+            <form id="initials-form" class="initials">
+                <p> Enter Initials:
+                    <input type="text" name="initials" id="initials" class="text-input" />
+                    <button class="btnstart" id="sumbit-score" type="submit">Submit</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="highscores" class="hide">
+        <div id="highscoreBoard">
+            <h2 id="highscore">Highscores!</h2>
+            <ol id="highscoreList" class="highscoreList"></ol>
+            <div>
+                <button id="restart">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="right" class="hide">That's right!</div>
+    <div id="wrong" class="hide">That's wrong!</div>
+
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
